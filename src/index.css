@@ -1,0 +1,43 @@
+:root {
+  --bg-main: hsl(283, 67%, 8%);
+  --bg-card: hsl(281, 74%, 15%);
+  --sidebar-bg: hsl(289, 75%, 25%);
+  --header-bg: hsl(278, 66%, 26%);
+
+  --text-main: hsla(244, 12%, 73%, 0.829);
+  --text-secondary: hsl(220, 7%, 50%);
+
+  --border-color: hsl(281, 74%, 30%);
+
+  --btn-primary: hsl(290, 79%, 22%);
+  --btn-primary-hover: hsl(295, 77%, 34%);
+  --btn-secondary: hsl(271, 75%, 23%);
+  --btn-secondary-hover: hsl(268, 72%, 35%);
+  --bnt-exit: hsl(0, 93%, 35%);
+  --bnt-exit-hover: hsl(0, 88%, 45%);
+
+  --element-selected: hsl(300, 100%, 28%);
+  --icon-color: hsl(292, 54%, 35%);
+  --icon-color-exit: hsl(0, 86%, 34%);
+  --icon-color-exit-hover: hsl(0, 91%, 39%);
+  --chart-color: hsl(261, 54%, 28%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+body {
+  background-color: var(--bg-main);
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+}

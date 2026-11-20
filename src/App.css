@@ -1,0 +1,23 @@
+.app-container {
+  display: grid;
+  grid-template-columns: 16rem 1fr; /* Coluna 1: Sidebar (16rem) | Coluna 2: Resto da tela (1fr) */
+  grid-template-rows: auto 1fr; /* Linha 1: Header | Linha 2: Main */
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+  width: 100%;
+  height: 100dvh;
+}
+
+.app-container.loading {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: none;
+}
+
+/* Estado visível (surgindo suavemente na tela) */
+.app-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}

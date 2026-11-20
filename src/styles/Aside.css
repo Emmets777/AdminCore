@@ -1,0 +1,147 @@
+aside {
+  grid-area: sidebar;
+  width: 100%;
+  /* Ocupa exatamente os 16rem definidos no grid */
+  height: 100dvh;
+  background-color: var(--sidebar-bg);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem 0.75rem;
+  z-index: 2;
+}
+
+.logo {
+  width: 100%;
+  height: 4rem;
+  object-fit: contain;
+}
+
+#utils {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  /* Garante que os botões ocupem toda a largura útil da sidebar */
+}
+
+.utilsBtn {
+  background-color: var(--btn-primary);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  padding: 10px 12px;
+  border: 0.55px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  color: hsl(0deg 2% 90%);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.utilsBtn.selected {
+  background-color: var(--element-selected);
+  /* Usa a cor de elemento selecionado da sua paleta */
+  border-color: var(--text-main);
+  /* Um destaque extra na borda, se desejar */
+  transform: translateX(4px);
+  /* Um pequeno deslocamento sutil para dar feedback visual */
+}
+
+.utilsBtn:hover {
+  background-color: var(--btn-primary-hover);
+  transform: translateY(-2px);
+}
+
+.utilsBtn.selected:hover {
+  transform: translateX(4px);
+}
+
+.utilsIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+#logoutSection {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.5rem;
+  background-color: rgba(0,
+      0,
+      0,
+      0.15);
+  /* Fundo sutil opcional para destacar o bloco do usuário */
+  border-radius: 8px;
+  /* Mantém a harmonia dos cards com bordas arredondadas */
+  box-sizing: border-box;
+}
+
+.img {
+  flex-shrink: 0;
+  width: 2.2rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profilePic {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.infosUser {
+  flex: 1;
+  min-width: 0;
+  /* Essencial para o ellipsis funcionar no flexbox */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+}
+
+#userName {
+  max-width: 100%;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.logout {
+  padding: 0.1em 0.4em;
+  font-size: 0.7rem;
+  cursor: pointer;
+  background-color: var(--bnt-exit);
+  border: none;
+  border-radius: 4px;
+  color: var(--text-main);
+}
+
+.logout:hover {
+  background-color: var(--bnt-exit-hover);
+  color: hsl(0, 0%, 100%);
+}
+
+.logoutIcon {
+  flex-shrink: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--icon-color-exit);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.logoutIcon:hover {
+  color: var(--icon-color-exit-hover);
+}
