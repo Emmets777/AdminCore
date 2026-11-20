@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>AdminCore</title>
+  </head>
+  <body>
+    <div class="app-container loading">
+      <aside>
+        <img src="./assets/logo-dark.svg" alt="AdminCore" class="logo" />
+
+        <section id="utils">
+          <button type="button" class="utilsBtn" data-target="dashboard">
+            <i class="fa-solid fa-chart-column"></i>
+            Dashboard
+          </button>
+          <button type="button" class="utilsBtn" data-target="produtos">
+            <i class="fa-solid fa-barcode"></i>
+            Produtos
+          </button>
+          <button type="button" class="utilsBtn" data-target="entregas">
+            <i class="fa-solid fa-truck"></i>
+            Entregas
+          </button>
+          <button type="button" class="utilsBtn" data-target="recebimentos">
+            <i class="fa-solid fa-box"></i>
+            Recebimentos
+          </button>
+          <button type="button" class="utilsBtn" data-target="perfil">
+            <i class="fa-solid fa-user"></i>
+            Perfil
+          </button>
+          <button type="button" class="utilsBtn" data-target="configs">
+            <i class="fa-solid fa-gear"></i>
+            Configurações
+          </button>
+        </section>
+
+        <section id="logoutSection">
+          <div class="img">
+            <img
+              src="./assets/profileImage.jpg"
+              alt="Profile Image"
+              class="profilePic"
+            />
+          </div>
+          <div class="infosUser">
+            <p id="userName">AdminCore</p>
+            <button type="button" class="btn logout">Sair</button>
+          </div>
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </section>
+      </aside>
+
+      <header>
+        <nav>
+          <p id="pageTitle">Bem vindo(a) ao AdminCore</p>
+
+          <div class="headerIconContainer">
+            <div class="containerSearch" id="containerSearch">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input
+                type="text"
+                placeholder="Pesquisar"
+                class="searchBar"
+                id="searchBar"
+              />
+            </div>
+            <i class="fa-solid fa-bell"></i>
+            <i class="fa-solid fa-gear"></i>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <section class="page-content active" id="dashboard">
+            <h1>Dashboard</h1>
+        </section>
+
+        <section class="page-content" id="produtos">
+            <h1>Produtos</h1>
+        </section>
+
+        <section class="page-content" id="entregas">
+            <h1>Entregas</h1>
+        </section>
+
+        <section class="page-content" id="recebimentos">
+            <h1>Recebimentos</h1>
+        </section>
+
+        <section class="page-content" id="perfil">
+            <h1>Perfil</h1>
+        </section>
+
+        <section class="page-content" id="configs">
+            <h1>Configs</h1>
+        </section>
+      </main>
+    </div>
+
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>

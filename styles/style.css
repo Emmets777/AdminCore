@@ -1,0 +1,294 @@
+:root {
+  --bg-main: hsl(283, 67%, 8%);
+  --bg-card: hsl(281, 74%, 15%);
+  --sidebar-bg: hsl(289, 75%, 25%);
+  --header-bg: hsl(278, 66%, 26%);
+
+  --text-main: hsla(244, 12%, 73%, 0.829);
+  --text-secondary: hsl(220, 7%, 50%);
+
+  --border-color: hsl(281, 74%, 30%);
+
+  --btn-primary: hsl(290, 79%, 22%);
+  --btn-primary-hover: hsl(295, 77%, 34%);
+  --btn-secondary: hsl(271, 75%, 23%);
+  --btn-secondary-hover: hsl(268, 72%, 35%);
+  --bnt-exit: hsl(0, 93%, 35%);
+  --bnt-exit-hover: hsl(0, 88%, 45%);
+
+  --element-selected: hsl(300, 100%, 28%);
+  --icon-color: hsl(292, 54%, 35%);
+  --icon-color-exit: hsl(0, 86%, 34%);
+  --icon-color-exit-hover: hsl(0, 91%, 39%);
+  --chart-color: hsl(261, 54%, 28%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+body {
+  background-color: var(--bg-main);
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+}
+
+.app-container {
+  display: grid;
+  grid-template-columns: 16rem 1fr; /* Coluna 1: Sidebar (16rem) | Coluna 2: Resto da tela (1fr) */
+  grid-template-rows: auto 1fr; /* Linha 1: Header | Linha 2: Main */
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+  width: 100%;
+  height: 100dvh;
+}
+
+.app-container.loading {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: none;
+}
+
+/* Estado visível (surgindo suavemente na tela) */
+.app-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+aside {
+    grid-area: sidebar;
+    width: 100%; /* Ocupa exatamente os 16rem definidos no grid */
+    height: 100dvh;
+    background-color: var(--sidebar-bg);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.25rem 0.75rem;
+    z-index: 2;
+}
+
+.logo {
+  width: 100%;
+  height: 4rem;
+  object-fit: contain;
+}
+
+#utils {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%; /* Garante que os botões ocupem toda a largura útil da sidebar */
+}
+
+.utilsBtn {
+  background-color: var(--btn-primary);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  padding: 10px 12px;
+  border: 0.55px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  color: hsl(0deg 2% 90%);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+.utilsBtn.selected {
+  background-color: var(
+    --element-selected
+  ); /* Usa a cor de elemento selecionado da sua paleta */
+  border-color: var(--text-main); /* Um destaque extra na borda, se desejar */
+  transform: translateX(
+    4px
+  ); /* Um pequeno deslocamento sutil para dar feedback visual */
+}
+
+.utilsBtn:hover {
+  background-color: var(--btn-primary-hover);
+  transform: translateY(-2px);
+}
+
+#logoutSection {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.5rem;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.15
+  ); /* Fundo sutil opcional para destacar o bloco do usuário */
+  border-radius: 8px; /* Mantém a harmonia dos cards com bordas arredondadas */
+  box-sizing: border-box;
+}
+
+.img {
+  flex-shrink: 0;
+  width: 2.2rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profilePic {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.infosUser {
+  flex: 1;
+  min-width: 0; /* Essencial para o ellipsis funcionar no flexbox */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+}
+
+#userName {
+  max-width: 100%;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.logout {
+  padding: 0.1em 0.4em;
+  font-size: 0.7rem;
+  cursor: pointer;
+  background-color: var(--bnt-exit);
+  border: none;
+  border-radius: 4px;
+  color: var(--text-main);
+}
+
+.logout:hover {
+  background-color: var(--bnt-exit-hover);
+  color: hsl(0, 0%, 100%);
+}
+
+#logoutSection > i {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  color: var(--icon-color-exit);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+#logoutSection > i:hover {
+  color: var(--icon-color-exit-hover);
+}
+
+header {
+    grid-area: header;
+    width: 100%;
+    background-color: var(--header-bg);
+    border-bottom: 0.25px solid hsl(280, 100%, 60%);
+    box-shadow: 0 0 6px hsl(280, 100%, 60%), 0 0 16px hsl(280, 100%, 60% / 0.6);
+    z-index: 1;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 0.75rem;
+}
+
+#pageTitle {
+  font-size: 18px;
+  color: hsl(244deg 15% 88%);
+}
+
+#pageTitle.animation {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.headerIconContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 0.2rem 0.2rem;
+}
+
+.containerSearch {
+  background-color: var(--header-bg);
+  padding: 0.2rem;
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.containerSearchFocus {
+  border: 0.25px solid black;
+}
+
+.searchBar {
+  border: none;
+  padding: 3px;
+  background-color: var(--header-bg);
+  color: var(--text-main);
+}
+
+.searchBar:focus {
+  outline: none;
+}
+
+main {
+    grid-area: main;
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem; /* Respiro interno para os cards e conteúdos */
+    overflow-y: auto; /* Permite rolar apenas o conteúdo principal se ele crescer */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Oculta todas as páginas por padrão */
+.page-content {
+  display: none;
+}
+
+.page-content > h1 {
+    text-align: center;
+    color: var(--text-main);
+}
+
+/* Mostra apenas a página que tiver a classe .active */
+.page-content.active {
+  display: flex;
+  flex-direction: column;
+  /* Você pode reaproveitar a animação suave que criamos antes aqui se quiser! */
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
